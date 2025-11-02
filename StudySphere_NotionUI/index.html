@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudySphere - Learn Together</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">📘 StudySphere</div>
+    <nav>
+      <button id="loginBtn">Login</button>
+      <button id="signupBtn">Sign Up</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Collaborate, Learn, and Grow Together</h1>
+        <p>Join study groups, share notes, and chat with peers in real-time. StudySphere makes learning collaborative
+          and fun.</p>
+        <div class="hero-buttons">
+          <button id="getStarted">Get Started</button>
+          <button id="googleLogin">Login with Google</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Updated placeholder image -->
+        <img src="https://placehold.co/500x350/e0f2fe/3b82f6?text=StudySphere&font=inter"
+          alt="StudySphere App Preview" />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="feature">
+          <h3>Create & Join Groups</h3>
+          <p>Easily create a new study group for your class or join an existing one with a unique code.</p>
+        </div>
+        <div class="feature">
+          <h3>Share Notes</h3>
+          <p>Upload and share your lecture notes, PDFs, and study guides with all members of your group.</p>
+        </div>
+        <div class="feature">
+          <h3>Real-Time Discussion</h3>
+          <p>Talk through complex problems with a built-in group chat. No need for other apps.</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      © 2025 StudySphere. Built for collaborative learning.
+    </footer>
+
+    <!-- ---------- Login Modal ---------- -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button id="loginSubmit">Login</button>
+      </div>
+    </div>
+
+    <!-- ---------- Signup Modal ---------- -->
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeSignup">&times;</span>
+        <h2>Sign Up</h2>
+        <!-- Added Name Input -->
+        <input type="text" id="signupName" placeholder="Your Name" required />
+        <input type="email" id="signupEmail" placeholder="Email" />
+        <input type="password" id="signupPassword" placeholder="Password" />
+        <button id="signupSubmit">Create Account</button>
+      </div>
+    </div>
+
+    <!-- ---------- Custom Alert Modal ---------- -->
+    <div id="alertModal" class="modal">
+      <div class="modal-content">
+        <p id="alertMessage">This is an alert message.</p>
+        <button id="alertCloseBtn">OK</button>
+      </div>
+    </div>
+    <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>

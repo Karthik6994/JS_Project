@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - StudySphere</title>
+  <link rel="stylesheet" href="./css/dashboard.css" />
+</head>
+<body>
+  
+  <header class="header">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M21 7.27c-0.34-0.19-0.78-0.12-1.05 0.17l-4.5 4.5c-0.29 0.29-0.29 0.76 0 1.05s0.76 0.29 1.05 0l4.5-4.5c0.27-0.29 0.34-0.74 0.17-1.08zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM10.88 7.37c-0.45-0.16-0.93-0.03-1.25 0.3l-5 5c-0.31 0.31-0.31 0.82 0 1.13s0.82 0.31 1.13 0l5-5c0.32-0.32 0.45-0.8 0.3-1.25zM15 8c-0.28 0-0.5 0.22-0.5 0.5V11c0 0.28 0.22 0.5 0.5 0.5s0.5-0.22 0.5-0.5V8.5c0-0.28-0.22-0.5-0.5-0.5z"/>
+      </svg>
+      <span>StudySphere</span>
+    </div>
+    <nav>
+      <span id="userEmail" class="user-email">Loading...</span>
+      <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="actions">
+      <h2>Your Study Groups</h2>
+      <div>
+        <button id="createGroupBtn" class="btn btn-primary">Create Group</button>
+        <button id="joinGroupBtn" class="btn">Join Group</button>
+      </div>
+    </div>
+
+    <div id="groupList" class="group-grid">
+      <!-- Group cards will be injected here by JavaScript -->
+    </div>
+  </main>
+
+  <!-- Create Group Modal -->
+  <div id="createGroupModal" class="modal">
+    <div class="auth-card">
+      <span class="close" id="cancelCreate">&times;</span>
+      <h2>Create New Group</h2>
+      <form id="createGroupForm">
+        <label for="groupNameInput">Group Name</label>
+        <input type="text" id="groupNameInput" placeholder="e.g., Biology 101" required />
+        
+        <label for="subjectInput">Subject</label>
+        <input type="text" id="subjectInput" placeholder="e.g., Biology" />
+        
+        <label for="descriptionInput">Description</label>
+        <textarea id="descriptionInput" placeholder="A short description of the group..."></textarea>
+        
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Join Group Modal -->
+  <div id="joinGroupModal" class="modal">
+    <div class="auth-card">
+      <span class="close" id="cancelJoin">&times;</span>
+      <h2>Join a Group</h2>
+      <form id="joinGroupForm">
+        <label for="groupCodeInput">Group Code</label>
+        <input type="text" id="groupCodeInput" placeholder="Enter the 6-digit code" required />
+        <button type="submit" class="btn btn-primary">Join</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Custom Alert Modal -->
+  <div id="alertModal" class="modal">
+    <div class="auth-card" style="text-align: center;">
+      <p id="alertMessage" style="margin-top: 1rem;"></p>
+      <button id="alertCloseBtn" class="btn btn-primary" style="margin-top: 1.5rem;">OK</button>
+    </div>
+  </div>
+
+  <!-- Custom Confirm Modal -->
+  <div id="confirmModal" class="modal">
+    <div class="auth-card" style="text-align: center;">
+      <p id="confirmMessage" style="margin-top: 1rem;"></p>
+      <div class="confirm-buttons">
+        <button id="confirmBtnYes" class="btn btn-danger">Yes</button>
+        <button id="confirmBtnNo" class="btn btn-secondary">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/dashboard.js"></script>
+</body>
+</html>

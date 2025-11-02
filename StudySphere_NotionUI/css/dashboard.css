@@ -1,0 +1,255 @@
+/* Global */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background: #f7f7f7;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* Buttons */
+.btn {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+
+.btn-secondary {
+  border-color: #e0e0e0;
+}
+
+.btn-danger {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: #ffffff;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.logo svg {
+  height: 28px;
+  width: 28px;
+  margin-right: 8px;
+  fill: #3b82f6;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Actions Bar */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.actions h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+.actions div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Group Grid */
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 0.5rem 0;
+}
+.card .subject {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+.card .description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+.card .group-id {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin: 1.5rem 0 0 0;
+  font-family: monospace;
+}
+.card .btn-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.card .btn-container .btn {
+  flex-grow: 1;
+}
+
+.empty-state {
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+  padding: 2rem;
+  grid-column: 1 / -1;
+}
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auth-card {
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.auth-card h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #111;
+  margin: 0 0 2rem 0;
+}
+
+.auth-card label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.auth-card input[type="text"],
+.auth-card input[type="email"],
+.auth-card input[type="password"],
+.auth-card textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.auth-card textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.auth-card .btn {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+}
+.close:hover {
+  color: #333;
+}
+
+.confirm-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.confirm-buttons .btn {
+  width: 100px;
+}

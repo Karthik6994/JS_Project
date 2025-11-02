@@ -1,0 +1,426 @@
+/* Global body and layout styles */
+body {
+  background-color: #ffffff; /* Light gray background */
+  overflow: hidden; /* Prevent full page scrolling */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.sticky-header {
+  height: 60px; /* Fixed header height */
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0; /* Lighter border */
+  padding: 0 1.5rem;
+  flex-shrink: 0; /* Prevent header from shrinking */
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.main-layout {
+  display: grid;
+  /* 250px for members, 1fr (auto) for chat, 300px for notes */
+  grid-template-columns: 250px 1fr 300px;
+  height: calc(100vh - 60px); /* Full height minus header */
+  overflow: hidden;
+}
+
+/* Base styles for the three columns */
+.sidebar, .chat-column, .notes-column {
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto; /* Allow vertical scrolling */
+  background-color: #ffffff;
+}
+
+/* Column 1: Members Sidebar */
+.sidebar {
+  border-right: 1px solid #f0f0f0; /* Lighter border */
+  background-color: #f7f7f7; /* Slightly different bg for sidebar */
+  padding: 1rem 0.5rem;
+}
+.sidebar ul {
+  padding-left: 0;
+  list-style: none;
+}
+.sidebar li {
+  padding: 6px 8px;
+  border-bottom: none; /* Removed border */
+  border-radius: 4px;
+  font-size: 15px;
+  margin-bottom: 2px;
+  color: #333;
+  cursor: default;
+}
+.sidebar li:hover {
+  background-color: #e9e9e9;
+}
+
+/* Column 2: Chat */
+.chat-column {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent chat column from scrolling */
+  padding: 0;
+}
+
+.messages {
+  flex-grow: 1; /* Take up all available space */
+  overflow-y: auto; /* Scrollable message area */
+  padding: 1rem;
+  background-color: #ffffff; /* Cleaner white bg */
+}
+
+/* Added style for empty states */
+.empty-state {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 2rem;
+}
+
+
+.chat-input-container {
+  border-top: 1px solid #f0f0f0; /* Lighter border */
+  background-color: #ffffff;
+  flex-shrink: 0; /* Prevent input from shrinking */
+}
+
+/* Column 3: Notes */
+.notes-column {
+  border-left: 1px solid #f0f0f0; /* Lighter border */
+  background-color: #f7f7f7; /* Match sidebar */
+}
+
+.note-item {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align to the start (left) */
+  padding: 8px; /* Adjusted padding */
+  border-radius: 4px;
+  margin-bottom: 4px;
+  transition: background-color 0.2s;
+}
+.note-item:hover {
+  background-color: #ececec;
+}
+.note-name {
+  /* Allow full name to wrap and be visible */
+  white-space: normal;
+  word-wrap: break-word; /* Break long words */
+  width: 100%; /* Take full width */
+  margin-bottom: 8px; /* Space between name and buttons */
+  font-weight: 500; /* Make name slightly bolder */
+  color: #111;
+}
+.note-actions {
+  flex-shrink: 0; /* Prevent buttons from wrapping */
+  /* Buttons will naturally be on the next line */
+}
+
+
+/* Chat Bubble Styles */
+.message {
+  /* max-width: 70%; */ /* <--- REMOVED FROM HERE */
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bubble {
+  border-radius: 6px; /* Reduced radius */
+  padding: 8px 12px; /* Adjusted padding */
+  word-wrap: break-word;
+  align-self: flex-start;
+  box-shadow: none; /* Removed shadow */
+  max-width: 80%; /* <--- AND ADDED HERE */
+  transition: background-color 0.2s ease; /* Added transition */
+  
+  /* --- OTHER'S BUBBLE --- */
+  background-color: #f1f1f1; /* Light gray */
+  border: none;
+  color: #303030;
+}
+/* Added bubble hover effect */
+.bubble:hover {
+  background-color: #e9e9e9;
+}
+
+
+.message.mine {
+  align-items: flex-end;
+}
+
+.message.mine .bubble {
+  /* --- YOUR BUBBLE --- */
+  background-color: #deebf7; /* Notion blue highlight */
+  color: #303030;
+  align-self: flex-end;
+  border: none;
+}
+/* Added bubble hover effect */
+.message.mine .bubble:hover {
+  background-color: #d1e3f3;
+}
+
+.sender {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: #555; /* Softer color */
+}
+
+.msg-text {
+  margin: 0;
+  color: #111;
+}
+
+.msg-time {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.message.mine .bubble .msg-time {
+  color: #666;
+}
+
+/* Chat file/image styles */
+.chat-image {
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.file-link {
+  display: block;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #0056b3; /* Default link color */
+  text-decoration: underline;
+}
+.message.mine .bubble .file-link {
+  color: #0056b3; /* Ensure links are blue on green bubble */
+}
+
+
+.date-separator {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  padding: 3px 10px;
+  margin: 15px auto;
+  width: fit-content;
+}
+
+
+/* Modal Styles */
+#filePreviewModal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  
+  /* New styles from JS, now in CSS */
+  justify-content: center;
+  align-items: flex-start; /* Align to top */
+  padding-top: 100px; /* Push content below header */
+}
+
+/* This class will be toggled by JS */
+#filePreviewModal.modal-show {
+  display: flex;
+}
+
+#previewContainer {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  
+  /* Sizing from JS, now in CSS */
+  width: 85vw;
+  height: 85vh;
+  
+  /* Ensure children fill this */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Notion-like shadow */
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Close button (the 'X') */
+#closePreview {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  
+  color: #aaa;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2001; /* Above container */
+}
+#closePreview:hover,
+#closePreview:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Make content inside modal responsive and fill container */
+#previewContainer img,
+#previewContainer embed,
+#previewContainer pre {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+#previewContainer embed {
+  width: 100%;
+  height: 100%;
+}
+
+#previewContainer pre {
+  background: #f4f4f4;
+  padding: 1em;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+
+/* --- Bootstrap Overrides for Notion UI --- */
+
+/* Buttons: Primary (Blue) */
+.btn-primary, .btn-primary:hover, .btn-primary:focus {
+  background-color: #23a9e0;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  box-shadow: none;
+}
+.btn-primary:hover {
+  background-color: #1b8fbc;
+}
+
+/* Buttons: Outline/Text (Gray) */
+.btn-outline-secondary, .btn-outline-secondary:hover, .btn-outline-secondary:focus {
+  border: none;
+  color: #555;
+  background: none;
+  font-weight: 500;
+  padding: 6px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.btn-outline-secondary:hover {
+  background-color: #f1f1f1;
+  color: #111;
+}
+
+/* Buttons: Danger (Red Text) */
+.btn-outline-danger, .btn-outline-danger:hover, .btn-outline-danger:focus {
+  border: none;
+  color: #e63946;
+  background: none;
+  font-weight: 500;
+  padding: 6px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.btn-outline-danger:hover {
+  background-color: #fff1f1;
+}
+
+/* Small buttons (from notes) */
+.btn-sm.btn-outline-secondary, .btn-sm.btn-outline-primary {
+    border: none;
+    color: #555;
+    background: none;
+    padding: 4px 6px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.btn-sm.btn-outline-secondary:hover, .btn-sm.btn-outline-primary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Form Input */
+.form-control, .form-control:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: #f7f7f7; /* Light bg for input */
+  border-radius: 4px;
+  padding: 10px 12px;
+  transition: box-shadow 0.2s ease-in-out; /* Added transition */
+}
+.form-control:focus {
+  background-color: #f7f7f7;
+  box-shadow: 0 0 0 2px #deebf7; /* Blue ring on focus */
+}
+
+/* Select Dropdown */
+.form-select {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+}
+.form-select:focus {
+  box-shadow: 0 0 0 2px #deebf7;
+  border-color: #23a9e0;
+}
+
+/* List Group (for notes list) */
+.list-group {
+  border-radius: 0;
+}
+.list-group-item {
+  border: none; /* Already handled by .note-item */
+  padding: 0; /* Already handled by .note-item */
+  background-color: transparent;
+}
+
+
+/* --- Minimalist Scrollbar --- */
+.sidebar::-webkit-scrollbar,
+.messages::-webkit-scrollbar,
+.notes-column::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.messages::-webkit-scrollbar-thumb,
+.notes-column::-webkit-scrollbar-thumb {
+  background-color: #ddd; /* Light gray handle */
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.messages::-webkit-scrollbar-thumb:hover,
+.notes-column::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb; /* Darker on hover */
+}
+

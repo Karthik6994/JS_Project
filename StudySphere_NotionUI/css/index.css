@@ -1,0 +1,232 @@
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #111827;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      background: #ffffff;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #3b82f6;
+    }
+    nav button {
+      margin-left: 1rem;
+      background: #3b82f6;
+      border: none;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    nav button:hover { background: #2563eb; }
+
+    main {
+      flex: 1;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 10%;
+    }
+    .hero-text { max-width: 500px; }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 2rem;
+    }
+    .hero-buttons {
+        display: flex;
+    }
+    .hero-buttons button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-right: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hero-buttons button:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    .hero-image img {
+      width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* --- Added Sections Styling --- */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      box-sizing: border-box; 
+    }
+    
+    /* Features Section */
+    .features {
+      background-color: #f7f7f7;
+      padding: 4rem 0;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .features .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .feature {
+      background-color: #fff;
+      border: 1px solid #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      text-align: left;
+    }
+    .feature h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .feature p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Testimonial Section */
+    .testimonial {
+      padding: 4rem 0;
+      background-color: #fff;
+    }
+    .testimonial blockquote {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      border: none;
+      padding: 0;
+    }
+    .testimonial cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-style: normal;
+      color: #777;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        padding: 2rem 5%;
+      }
+      .hero-text {
+        text-align: center;
+        max-width: 100%;
+      }
+      .hero-image img {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 2rem;
+      }
+      .features .container {
+        grid-template-columns: 1fr; /* Stack features on mobile */
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+    /* --- End Added Sections Styling --- */
+
+
+    /* ---------- Modal Styling ---------- */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative; /* Added for close button */
+    }
+    .modal-content input {
+      width: 90%;
+      margin: 0.5rem 0;
+      padding: 0.6rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+    .modal-content button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      margin-top: 0.8rem;
+      cursor: pointer;
+    }
+    .modal-content button:hover { background: #2563eb; }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    /* --- Alert Modal Styling --- */
+    #alertModal .modal-content {
+        padding: 2.5rem 2rem 1.5rem 2rem;
+    }
+    #alertMessage {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+    #alertCloseBtn {
+        padding: 0.6rem 1.2rem;
+    }

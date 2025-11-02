@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudySphere | Group</title>
+
+  <!-- Bootstrap CSS (for buttons, forms, etc.) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./css/group.css">
+</head>
+
+<body>
+
+  <!-- Sticky Header -->
+  <header class="sticky-header d-flex justify-content-between align-items-center">
+    <h3 id="group-name" class="mb-0 fw-bold">Loading...</h3>
+    <div>
+      <button id="back-btn" class="btn btn-outline-secondary btn-sm">← Dashboard</button>
+      <button id="leave-group" class="btn btn-outline-danger btn-sm ms-2">Leave Group</button>
+    </div>
+  </header>
+
+  <!-- 3-Column Layout -->
+  <div class="main-layout">
+    
+    <!-- Column 1: Members -->
+    <aside class="sidebar">
+      <h4 class="text-center mb-3">👥 Members</h4>
+      <ul id="members-list" class="list-group">
+        <!-- Members will be loaded here by JS -->
+        <li>Loading members...</li>
+      </ul>
+    </aside>
+
+    <!-- Column 2: Chat -->
+    <main class="chat-column">
+      <!-- Messages -->
+      <div id="messages" class="messages">
+        <!-- Messages will be loaded here by JS -->
+        <p class="text-center text-muted">Loading messages...</p>
+      </div>
+
+      <!-- Message Input -->
+      <div class="input-group chat-input-container p-3">
+        <input type="file" id="fileInput" class="d-none">
+        <input type="text" id="message-input" class="form-control" placeholder="Type a message...">
+        <button id="send-btn" class="btn btn-primary">Send</button>
+      </div>
+    </main>
+
+    <!-- Column 3: Notes -->
+    <aside class="notes-column">
+      <div class="notes-header d-flex justify-content-between align-items-center mb-2">
+        <h4>Group Notes</h4>
+        <button id="upload-note-btn" class="btn btn-primary btn-sm">Upload</button>
+      </div>
+      
+      <div class="mb-2">
+        <select id="filter-select" class="form-select form-select-sm">
+          <option value="all">All</option>
+          <option value="pdf">PDF</option>
+          <option value="doc">Word</option>
+          <option value="txt">Text</option>
+          <option value="img">Images</option>
+        </select>
+      </div>
+
+      <ul id="notes-list" class="list-group">
+        <!-- Notes will be loaded here by JS -->
+        <li>Loading notes...</li>
+      </ul>
+    </aside>
+
+  </div> <!-- /main-layout -->
+
+
+  <!-- File Preview Modal (Controlled by CSS) -->
+  <div id="filePreviewModal">
+    <span id="closePreview">&times;</span>
+    <div id="previewContainer">
+      <!-- Content (img, embed, pre) will be injected by JS -->
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JS (for any components that need it, though not strictly required by this layout) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Firebase + Logic -->
+  <script type="module" src="./js/group.js"></script>
+</body>
+
+</html>
+
